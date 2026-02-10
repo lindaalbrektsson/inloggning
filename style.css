@@ -1,6 +1,10 @@
 
 /*Login-fönstret*/
 
+  body {
+      background: linear-gradient(135deg, #ea9266 0%, #89cf54 100%) fixed no-repeat;
+  }
+
 .form-container {
 display: flex;
     flex-direction: column;
@@ -36,10 +40,42 @@ display: flex;
     cursor: pointer;
 }
 
+.error {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: #ffe7e7;
+    border: 1px solid #ffb3b3;
+    color: #7a0b0b;
+    font-size: 14px;
+}
+
 /*Welcome-fönstret*/
 
 .hidden {
-    /* display: none; */
+    display: none;
+}
+
+  body.logged-in {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) fixed no-repeat;
+  }
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 320px;
+    padding: 22px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.welcome-text {
+    margin: 0;
+    font-size: 16px;
 }
 
 .btn-logout {
