@@ -1,89 +1,87 @@
+/* ====== Globalt ====== */
+.hidden {
+    display: none;
+}
 
-/*Login-fönstret*/
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ea9266 0%, #89cf54 100%) fixed no-repeat;
+}
 
-  body {
-      background: linear-gradient(135deg, #ea9266 0%, #89cf54 100%) fixed no-repeat;
-  }
+body.logged-in {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) fixed no-repeat;
+}
 
-.form-container {
-display: flex;
+/* ====== Gemensam "card"-stil ====== */
+.form-container,
+.welcome-container {
+    width: min(340px, 90vw);
+    margin: clamp(24px, 10vh, 100px) auto;
+
+    display: flex;
     flex-direction: column;
-    width: 300px;
-    padding: 20px;
+    gap: 12px;
+
+    padding: 22px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: hsl(0, 41%, 69%);
-    margin: 100px auto;
+    border-radius: 10px;
 }
 
-.form-container h2 {
+/* Rubriker */
+.form-container h2,
+.welcome-container h2 {
     text-align: center;
-    margin-bottom: 25px;
+    margin: 0 0 8px;
 }
+
+/* ====== Login ====== */
+.form-container {
+    background-color: hsl(0, 41%, 69%);
+}
+
 .form-container label {
-    margin-bottom: 5px;
     font-weight: bold;
 }
+
 .form-container input {
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 6px;
+    font-size: 16px;
 }
-.btn-login {
-    padding: 20px 10px;
+
+/* ====== Knappar ====== */
+.btn-login,
+.btn-logout {
+    padding: 16px 10px;
     background-color: hsl(0, 3%, 47%);
-    border: solid #ccc 1px;
-    border-radius: 3px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     color: white;
     font-weight: bold;
     cursor: pointer;
+    font-size: 16px;
 }
 
+/* ====== Felmeddelande ====== */
 .error {
-    margin-top: 12px;
     padding: 10px 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     background: #ffe7e7;
     border: 1px solid #ffb3b3;
     color: #7a0b0b;
     font-size: 14px;
 }
 
-/*Welcome-fönstret*/
-
-.hidden {
-    display: none;
-}
-
-  body.logged-in {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) fixed no-repeat;
-  }
-
+/* ====== Welcome ====== */
 .welcome-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 320px;
-    padding: 22px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: white;
-    margin: 100px auto;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
 }
 
 .welcome-text {
     margin: 0;
     font-size: 16px;
-}
-
-.btn-logout {
-    padding: 20px 10px;
-    background-color: hsl(0, 3%, 47%);
-    border: solid #ccc 1px;
-    border-radius: 3px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
 }
