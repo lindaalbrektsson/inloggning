@@ -1,3 +1,6 @@
+
+/*Login-fönstret*/
+
 .form-container {
 display: flex;
     flex-direction: column;
@@ -24,6 +27,22 @@ display: flex;
     border-radius: 3px;
 }
 .btn-login {
+    padding: 20px 10px;
+    background-color: hsl(0, 3%, 47%);
+    border: solid #ccc 1px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*Welcome-fönstret*/
+
+.hidden {
+    /* display: none; */
+}
+
+.btn-logout {
     padding: 20px 10px;
     background-color: hsl(0, 3%, 47%);
     border: solid #ccc 1px;
