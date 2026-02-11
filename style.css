@@ -15,7 +15,8 @@ body.logged-in {
 
 /* ====== Gemensam "card"-stil ====== */
 .form-container,
-.welcome-container {
+.welcome-container,
+.register-container  {
     width: min(340px, 90vw);
     margin: clamp(24px, 10vh, 100px) auto;
 
@@ -36,24 +37,40 @@ body.logged-in {
 }
 
 /* ====== Login ====== */
-.form-container {
+.form-container,
+.register-container {
     background-color: hsl(0, 41%, 69%);
 }
 
-.form-container label {
+.form-container label,
+.register-container label {
     font-weight: bold;
 }
 
-.form-container input {
+.form-container input,
+.register-container input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
 }
+/* ====== Registrera ny användare ====== */
+
+.small-text {
+    margin: 8px 0 0;
+    font-size: 14px;
+}
+
+.btn-register {
+    margin-top: 6px;
+}
 
 /* ====== Knappar ====== */
 .btn-login,
-.btn-logout {
+.btn-logout,
+.btn-register,
+.btn-register-submit,
+.btn-back {
     padding: 16px 10px;
     background-color: hsl(0, 3%, 47%);
     border: 1px solid #ccc;
@@ -64,6 +81,9 @@ body.logged-in {
     font-size: 16px;
 }
 
+.btn-back {
+    margin-top: 6px;
+}
 /* ====== Felmeddelande ====== */
 .error {
     padding: 10px 12px;
@@ -85,3 +105,4 @@ body.logged-in {
     margin: 0;
     font-size: 16px;
 }
+
