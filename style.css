@@ -1,4 +1,11 @@
-/* ====== Globalt ====== */
+/*Globalt*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
 .hidden {
     display: none;
 }
@@ -13,10 +20,56 @@ body.logged-in {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) fixed no-repeat;
 }
 
-/* ====== Gemensam "card"-stil ====== */
+/*Konfetti*/
+body.logged-in::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.9) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6) 2px, transparent 3px);
+    background-size: 120px 120px, 180px 180px, 240px 240px;
+    background-position: 0 0, 40px 60px, 90px 20px;
+
+    opacity: 0;
+
+    animation:
+        confettiFade 2.8s ease,
+        confettiDrift 2.8s linear;
+}
+
+@keyframes confettiFade {
+    0% {
+        opacity: 0;
+    }
+    12% {
+        opacity: 0.38;
+    }
+    65% {
+        opacity: 0.32;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes confettiDrift {
+    0% {
+        background-position: 0 0, 40px 60px, 90px 20px;
+    }
+
+    100% {
+        background-position: 30px 80px, 10px 20px, 140px 120px;
+    }
+}
+
+/*Containers*/
 .form-container,
 .welcome-container,
-.register-container  {
+.register-container {
     width: min(340px, 90vw);
     margin: clamp(24px, 10vh, 100px) auto;
 
@@ -25,26 +78,28 @@ body.logged-in {
     gap: 12px;
 
     padding: 22px;
-    border: 1px solid #ccc;
     border-radius: 10px;
+
+    background-color: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(6px);
 }
 
-/* Rubriker */
+/*Rubriker*/
 .form-container h2,
+.register-container h2,
 .welcome-container h2 {
     text-align: center;
     margin: 0 0 8px;
 }
 
-/* ====== Login ====== */
-.form-container,
-.register-container {
-    background-color: hsl(0, 41%, 69%);
-}
-
+/*Login och register*/
 .form-container label,
 .register-container label {
     font-weight: bold;
+    font-size: 1rem;
 }
 
 .form-container input,
@@ -52,57 +107,101 @@ body.logged-in {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 1rem;
 }
-/* ====== Registrera ny användare ====== */
 
+/*Registrera ny användare*/
 .small-text {
     margin: 8px 0 0;
-    font-size: 14px;
 }
 
 .btn-register {
     margin-top: 6px;
 }
 
-/* ====== Knappar ====== */
+/*Knappar (bas)*/
 .btn-login,
 .btn-logout,
 .btn-register,
 .btn-register-submit,
 .btn-back {
     padding: 16px 10px;
-    background-color: hsl(0, 3%, 47%);
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 6px;
     color: white;
     font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-login:hover,
+.btn-logout:hover,
+.btn-register:hover,
+.btn-register-submit:hover,
+.btn-back:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-login:active,
+.btn-logout:active,
+.btn-register:active,
+.btn-register-submit:active,
+.btn-back:active {
+    transform: translateY(0px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/*Knappar (färger)*/
+
+.btn-login {
+    background-color: #e67e22;
+}
+
+.btn-login:hover {
+    background-color: #cf711b;
+}
+
+.btn-register-submit {
+    background-color: #27ae60;
+}
+
+.btn-register-submit:hover {
+    background-color: #1f8f4e;
+}
+
+.btn-logout {
+    background-color: #e74c3c;
+}
+
+.btn-logout:hover {
+    background-color: #c0392b;
+}
+
+.btn-register,
+.btn-back {
+    background-color: #7f8c8d;
+}
+
+.btn-register:hover,
+.btn-back:hover {
+    background-color: #6c7778;
 }
 
 .btn-back {
     margin-top: 6px;
 }
-/* ====== Felmeddelande ====== */
+
+/*Error message*/
 .error {
     padding: 10px 12px;
     border-radius: 8px;
     background: #ffe7e7;
     border: 1px solid #ffb3b3;
     color: #7a0b0b;
-    font-size: 14px;
-}
-
-/* ====== Welcome ====== */
-.welcome-container {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(6px);
-}
-
-.welcome-text {
-    margin: 0;
-    font-size: 16px;
+    font-size: 1rem;
 }
 

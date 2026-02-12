@@ -97,7 +97,7 @@ function showWelcome(name) {
   document.body.classList.add("logged-in");
 
   loggedInName.textContent = name;
-  welcomeTitle.textContent = `Trevligt att se dig, ${name}.`;
+  welcomeTitle.textContent = `Trevligt att se dig, ${name}!`;
 }
 
 /*LOGIN*/
