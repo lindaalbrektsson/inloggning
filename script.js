@@ -116,7 +116,7 @@ function tryLogin() {
 
 /*Inga användare*/
   if (users.length === 0) {
-    showError("Inga användare finns ännu. Registrera dig först.");
+    showError("Det finns inga användare ännu. Börja med att skapa ett konto.");
     return;
   }
 
@@ -126,19 +126,19 @@ function tryLogin() {
 
 /*Fel användarnamn och lösenord*/
   if (!userByUsername && !userByPassword) {
-    showError("Både användarnamn och lösenord är fel.");
+    showError("Användarnamn och lösenord stämmer inte. Försök igen eller skapa en ny användare.");
     return;
   }
 
   /*Fel användarnamn men lösenordet finns*/
   if (!userByUsername && userByPassword) {
-    showError("Användarnamnet är fel (lösenordet stämmer för en annan användare).");
+    showError("Användarnamnet stämmer inte.");
     return;
   }
 
 /*Fel lösenord men användarnamnet finns*/
   if (userByUsername && userByUsername.password !== enteredPassword) {
-    showError("Användaren finns, men lösenordet är fel.");
+    showError("Lösenordet stämmer inte.");
     return;
   }
 
@@ -154,7 +154,7 @@ function registerUser() {
   const newPassword = regPassword.value;
 
   if (!newUsername || !newPassword) {
-    showError("Fyll i både användarnamn och lösenord för att registrera.");
+    showError("Fyll i både användarnamn och lösenord för att skapa ett konto.");
     return;
   }
 
